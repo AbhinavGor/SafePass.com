@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel = "stylesheet" href="style/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300&display=swap" rel="stylesheet">
+    <title>SafePass</title>
+</head>
+<body>
+    <div class="parallax">
+        <header>
+                <div class="logo-container">
+                    <h1 >SafePass</h1>
+                </div>
+            </header>
+</div>
+    <div class="checkboxes">
+        <form action = "index.php" method="POST">
+            <label class="container">
+                Uppercase Letters
+                <input type="checkbox" name = 'Uletters' value = 'UL'checked="checked">
+                <span class="checkmark"></span>
+              </label>
+              
+              <label class="container">
+                Lowercase Letters
+                <input type="checkbox" name = 'Lletters' value = 'LL' checked = "checked">
+                <span class="checkmark"></span>
+              </label>
+              
+              <label class="container">
+                  Numbers
+                <input type="checkbox" name = 'Numbers' value = 'N' checked = " checked">
+                <span class="checkmark"></span>
+              </label>
+              
+              <label class="container">
+                  Special Characters(\ _ - )
+                <input type="checkbox" name = "Special" value="S">
+                <span class="checkmark"></span>
+              </label>
+              <input type = "submit" value = "Get Secure!">
+        </form>
+    </div>
+</body>
+</html>
