@@ -6,6 +6,7 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel = "stylesheet" href="style/style.css">
+    <link rel="icon" href="style/icon.png" type="image/icon type">
 
     <title>SafePass</title>
 </head>
