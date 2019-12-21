@@ -14,17 +14,23 @@ body h1{
 .checkbox-container
 {
   width: 50%;
-  height: 70%;
+  height: auto;
   margin-top: 10%;
   margin-bottom: 10%;
   margin-left: 25%;
+  padding: 10px 0px 20px 0px;
   margin-right: auto;
   background-color: antiquewhite;
-  padding: 20px 0px 20px 0px;
   border-radius: 25px;
   border: 2px solid antiquewhite;
   display: flex;
   flex-direction: column;
+}
+.arrow{
+  margin-right: 50%;
+  margin-left: auto;
+  width: auto;
+  height: auto;
 }
 
 header {
@@ -35,14 +41,15 @@ header {
     align-items: center;
     flex: 3;
 }
-
-h2{
+.res{
   text-align: center;
+  font-size: 18px;
+  font-weight:  bold;
 }
 
 .checkboxes{
     display: flex;
-    margin-left: 30%;
+    margin-left: 10%;
     margin-right: auto;
     flex-direction: column;
 }
@@ -184,8 +191,13 @@ nav {
     font-size: 16px;
   }
   
-
+.submit, .output
+{
+  display: flex;
+  flex-direction: row;
+}
   .output{
+    flex: 1;
     width: 80%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -196,6 +208,21 @@ nav {
     text-align: center;
     margin-right: 10%;
     margin-left: 10%;
+  }
+
+
+  .submit {
+    background-color: white;
+    color: black;
+    border: 2px solid #e7e7e7;
+    text-align: center;
+    padding: 16px 32px;
+    text-decoration: none;
+    font-size: 16px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif !important;
   }
 
 .nav-links {
@@ -214,22 +241,6 @@ nav {
     background: linear-gradient(to right, #7d7d81, black );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-}
-
-.submit {
-  background-color: white;
-  color: black;
-  border: 2px solid #e7e7e7;
-  padding: 16px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  
-  -webkit-transition-duration: 0.4s; /* Safari */
-  transition-duration: 0.4s;
-  cursor: pointer;
-  font-family: 'Poppins', sans-serif !important;
 }
 
 .website{
@@ -260,6 +271,12 @@ nav {
   }
   .container{
     font-size: 14px;
+  }
+
+  .checkbox-container{
+    width: fit-content;
+    margin-left: 10%;
+    margin-right: 10%;
   }
 }
 

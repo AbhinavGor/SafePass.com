@@ -55,11 +55,12 @@
                 <input type="checkbox" name = "Special" value="S">
                 <span class="checkmark"></span>
               </label>
-              <input type = "number" min = 1 name = 'length' value = '10' placeholder = "Length of password"><br>
+              <br>Length of password<input type = "number" min = 1 max = 30 name = 'length' value = '10' placeholder = "Length of password"><br><br><br><br>
               <input type = "submit" name = 'generate' value = "Get a secure password!" class = "submit">
         </form>
     </div>
     <?php
+    $length = 10;
     $charset = '';
     if(isset($_POST['Uletters']))
     {
@@ -77,18 +78,40 @@
     {
         $charset = $charset.'%$&@!\'\"\\\/.,[]{}()^~`';
     }
-    $length = $_POST['length'];
     $rand = rand(0,50);
 ?>
 
-<h2>Securely generated password</h2>
-<input disabled class = "output" type  = " text" value = "<?php if(isset($_POST['generate'])){if(!(isset($_POST['Uletters']) or isset($_POST['Lletters']) or isset($_POST['Numbers']) or isset($_POST['Symbols']))){echo 'Select at least one of the options.';}else{$generate_password = substr(str_shuffle($charset), (int)$rand,(int)$length); echo $generate_password;}} ?>">
+<div class = "res">Here's a secure password for you</div>
+<img src = "style/arrow.png" class = "arrow">
+<input disabled class = "output" type  = " text" value = "<?php
+
+if(isset($_POST['length'])){$length = $_POST['length'];}
+if(isset($_POST['generate']))
+{
+    if(!(isset($_POST['Uletters']) or isset($_POST['Lletters']) or isset($_POST['Numbers']) or isset($_POST['Symbols'])))
+    {
+        echo 'Select at least one of the options.';
+    }
+    else{
+        if(isset($_POST['Uletters']))
+        {
+            $generate_password = substr(str_shuffle($charset), (int)$rand,(int)$length); 
+            echo $generate_password;    
+        }
+        
+        else
+        {
+            $generate_password = substr(str_shuffle($charset), (int)$rand,(int)$length); 
+            $final_password = md5($generate_password); 
+            $final_password = substr(str_shuffle($final_password),(int)$rand,(int)$length);
+            echo ($final_password);
+        }
+            
+        }
+} ?>">
 </div>
 
 <div class="parallaxbottom">
-    <div class="copy">
-    
-    </div>
 
 <div class="website"><br><br>&copyAbhinav Gorantla<a href = "https://abhinavgor.netlify.com/contactus.html">www.abhinavgor.netlify.com</a></div>
 </div>
