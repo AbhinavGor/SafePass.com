@@ -87,26 +87,32 @@
 <input disabled class = "output" type  = " text" value = "<?php
 
 if(isset($_POST['length'])){$length = $_POST['length'];}
+$counter = 0;
+if(isset($_POST['Uletters']))
+{
+    $counter += 1;
+}
+if(isset($_POST['Lletters']))
+{
+    $counter += 1;
+}
+if(isset($_POST['Numbers']))
+{
+    $counter += 1;
+}
+if(isset($_POST['Special']))
+{
+    $counter += 1;
+}
 if(isset($_POST['generate']))
 {
-    if(!(isset($_POST['Uletters']) or isset($_POST['Lletters']) or isset($_POST['Numbers']) or isset($_POST['Symbols'])))
+    if($counter < 2)
     {
         echo 'Select at least one of the options.';
     }
     else{
-        if(isset($_POST['Uletters']))
-        {
-            $generate_password = substr(str_shuffle($charset), (int)$rand,(int)$length); 
-            echo $generate_password;    
-        }
-        
-        else
-        {
-            $generate_password = substr(str_shuffle($charset), (int)$rand,(int)$length); 
-            $final_password = md5($generate_password); 
-            $final_password = substr(str_shuffle($final_password),(int)$rand,(int)$length);
-            echo ($final_password);
-        }
+        $generate_password = substr(str_shuffle($charset), (int)$rand,(int)$length); 
+        echo $generate_password;
             
         }
 } ?>">

@@ -1,64 +1,20 @@
-
-<div class="checkbox-container">
-<h2>Please tick the appropriate boxes.</h2>
-<div class="checkboxes">
-        <form action = "index.php" method="POST">
-            <label class="container">
-                Uppercase Letters
-                <input type="checkbox" name = 'Uletters' value = 'UL'checked="checked">
-                <span class="checkmark"></span>
-              </label>
-              
-              <label class="container">
-                Lowercase Letters
-                <input type="checkbox" name = 'Lletters' value = 'LL' checked = "checked">
-                <span class="checkmark"></span>
-              </label>
-              
-              <label class="container">
-                  Numbers
-                <input type="checkbox" name = 'Numbers' value = 'N' checked = " checked">
-                <span class="checkmark"></span>
-              </label>
-              
-              <label class="container">
-                  Special Characters(\ _ - )
-                <input type="checkbox" name = "Special" value="S">
-                <span class="checkmark"></span>
-              </label>
-              <input type = "number" min = 1 name = 'length'>
-              <input type = "submit" name = 'generate' value = "Get Secure!">
-        </form>
-    </div>
-    <?php
-$charset = '';
-    if(isset($_POST['Uletters']))
-    {
-        $charset = $charset.'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    }
-    if(isset($_POST['Lletters']))
-    {
-        $charset  = $charset.'abcdefghijklmnopqrstuvwxyz';
-    }
-    if(isset($_POST['Numbers']))
-    {
-        $charset = $charset.'1234567890';
-    }
-    if(isset($_POST['Special']))
-    {
-        $charset = $charset.'%$&@!\'\"\\\/.,[]{}()^~`';
-    }
-    if(!(isset($_POST['Uletters']) and isset($_POST['Lletters']) and isset($_POST['Numbers']) and isset($_POST['Symbols'])))
+if(!(isset($_POST['Uletters']) or isset($_POST['Lletters']) or isset($_POST['Numbers']) or isset($_POST['Symbols'])))
     {
         echo 'Select at least one of the options.';
     }
-
-    if(isset($_POST['generate']))
-    {
-        $generate_password = substr(str_shuffle($charset), 0,10);
-        echo $generate_password;
-    }
-
-    
-?>
-</div>
+    else{
+        if(isset($_POST['Uletters']))
+        {
+            $generate_password = substr(str_shuffle($charset), (int)$rand,(int)$length); 
+            echo $generate_password;    
+        }
+        
+        else
+        {
+            $generate_password = substr(str_shuffle($charset), (int)$rand,(int)$length); 
+            $final_password = md5($generate_password); 
+            $final_password = substr(str_shuffle($final_password),(int)$rand,(int)$length);
+            echo ($final_password);
+        }
+            
+        }
